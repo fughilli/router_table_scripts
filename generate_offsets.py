@@ -1,5 +1,6 @@
 import fractions
 
+from util import FormatImproper
 
 kFootInches = 12
 board_width = 5 * kFootInches
@@ -9,18 +10,6 @@ num_ribs = 6
 outer_spacing = (board_width - (num_ribs - 1) *
                  inner_spacing - (num_ribs + 2) * wall_thickness) / 2
 
-
-def FormatImproper(fract):
-    num, den = fract.numerator, fract.denominator
-    whole = num // den
-    num = num % den
-    if whole == 0:
-        if num == 0:
-            return '0'
-        return '{}/{}'.format(num, den)
-    if num == 0:
-        return '{}'.format(whole)
-    return '{} {}/{}'.format(whole, num, den)
 
 
 print("Inner spacing:", FormatImproper(inner_spacing),
